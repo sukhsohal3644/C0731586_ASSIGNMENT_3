@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Name : Sukhdeep Sohal         Student ID : c0731586
-
-
 // Name : Ankita Sharma          Student ID : c0730066
+// Course : CSD3354_1 
 
 namespace BankAccountNS
 {
@@ -17,6 +16,8 @@ namespace BankAccountNS
         private string m_customerName;
         private double m_balance;
         private bool m_frozen = false;
+        public const string DebitAmountExceedsBalanceMessage = " Debit amount exceeds balance";
+        public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero";
 
         private BankAccount()
         {
@@ -45,11 +46,11 @@ namespace BankAccountNS
             }
             if (amount > m_balance)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, DebitAmountExceedsBalanceMessage);
             }
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount",amount, DebitAmountLessThanZeroMessage);
             }
             m_balance -= amount;
         }
