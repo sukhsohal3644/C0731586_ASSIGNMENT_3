@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 // Name : Ankita Sharma          Student ID : c0730066
 
-namespace c0731586
+namespace BankAccountNS
 {
 
     public class BankAccount
@@ -51,7 +51,7 @@ namespace c0731586
             {
                 throw new ArgumentOutOfRangeException("amount");
             }
-            m_balance += amount;
+            m_balance -= amount;
         }
         public void Credit(double amount)
         {
